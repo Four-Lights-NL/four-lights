@@ -5,30 +5,12 @@ on:
     branches:
       - main
     paths:
-      - 'src/**'
-      - 'public/**'
-      - 'package.json'
-      - 'package-lock.json'
-      - 'next.config.ts'
-      - 'tailwind.config.ts'
-      - 'postcss.config.mjs'
-      - 'tsconfig.json'
-      - 'biome.json'
-      - '.github/workflows/frontend-build-push.yaml'
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Environment to deploy to'
-        required: true
-        default: 'production'
-        type: choice
-        options:
-          - production
-          - staging
+      - '**'
+      - '!.github'
 
 jobs:
   build:
-    name: Build Frontend
+    name: Build
     uses: ./.github/workflows/_build.yaml
     with:
       oci-name: frontend
@@ -39,7 +21,7 @@ jobs:
       contents: read
 
   push:
-    name: Push Frontend
+    name: Push
     needs: build
     uses: ./.github/workflows/_push.yaml
     with:
