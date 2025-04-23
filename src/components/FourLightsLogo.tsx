@@ -37,9 +37,9 @@ const FourLightsLogo: React.FC<Props> = ({ background, size }) => {
         <animate attributeName="r" values={`${spaceStep};${spaceStep * growSize};${spaceStep}`} dur="4s" repeatCount="indefinite"/>
       </circle>
 
-      <circle cx={step * 13} cy={step * 13} r={spaceStep} fill="#ff9300">
+      <circle cx={step * 13} cy={step * 13} r={spaceStep} fill="#FF9300">
         {/* Pulsing animation for orange LED */}
-        <animate attributeName="fill" from="#FF9300" to="#F39C121" dur="3.5s" repeatCount="indefinite"/>
+        <animate attributeName="fill" from="#FF9300" to="#F39C12" dur="3.5s" repeatCount="indefinite"/>
         {/* Glow effect */}
         <animate attributeName="r" values={`${spaceStep};${spaceStep * growSize};${spaceStep}`} dur="3.5s" repeatCount="indefinite"/>
       </circle>
